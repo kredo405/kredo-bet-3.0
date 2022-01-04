@@ -1,0 +1,35 @@
+{
+  "name": "kredo-bet-3.0",
+  "version": "3.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kredo405/kredo-bet-3.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kredo405/kredo-bet-3.0/issues"
+  },
+  "homepage": "https://github.com/kredo405/kredo-bet-3.0#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "browser-sync": "^2.27.7",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "prettier": "2.5.1",
+    "sass": "^1.45.2"
+  }
+}
