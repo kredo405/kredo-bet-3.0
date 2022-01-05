@@ -36,6 +36,7 @@
   &__button-toggle {
     width: 200px;
     margin: 20px;
+    overflow-x: hidden;
   }
   &__item {
     display: flex;
@@ -93,6 +94,12 @@
       width: 100px;
       margin: 5px;
     }
+    &__dropdown-menu {
+      overflow-y: scroll;
+      height: 200px;
+      width: 210px;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -135,6 +142,12 @@
     &__button-toggle {
       width: 100px;
       margin: 7px;
+    }
+    &__dropdown-menu {
+      overflow-y: scroll;
+      height: 250px;
+      width: 200px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -179,6 +192,12 @@
       width: 120px;
       margin: 10px;
     }
+    &__dropdown-menu {
+      overflow-y: scroll;
+      height: 250px;
+      width: 200px;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -221,6 +240,12 @@
     &__button-toggle {
       width: 200px;
       margin: 20px;
+    }
+    &__dropdown-menu {
+      overflow-y: scroll;
+      height: 250px;
+      width: 200px;
+      margin-bottom: 20px;
     }
   }
 }
