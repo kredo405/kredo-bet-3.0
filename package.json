@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kredo405/kredo-bet-3.0#readme",
   "devDependencies": {
+    "axios": "^0.24.0",
     "babel-eslint": "^10.1.0",
     "browser-sync": "^2.27.7",
     "eslint": "^8.6.0",
@@ -30,6 +31,8 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "prettier": "2.5.1",
-    "sass": "^1.45.2"
+    "sass": "^1.45.2",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
   }
 }

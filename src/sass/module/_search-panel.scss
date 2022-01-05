@@ -37,6 +37,21 @@
     width: 200px;
     margin: 20px;
   }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(131, 131, 131);
+  }
+  &__flag {
+    width: 20%;
+    padding: 5px;
+  }
+  &__dropdown-menu {
+    overflow-y: scroll;
+    height: 250px;
+    width: 200px;
+    margin-bottom: 20px;
+  }
 }
 @media (max-width: 576px) {
   .search-panel {
