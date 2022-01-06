@@ -1,5 +1,6 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { arrCountries } from './../../data/countries';
+import getLeagueData from './getLeagueData';
 function getCountryData() {
   const dropdownCountrylist = document.querySelector(
       '.search-panel__dropdown-menu--country'
@@ -9,20 +10,21 @@ function getCountryData() {
   arrCountries.forEach((el) => {
     let li = document.createElement('li');
     li.innerHTML = `<a class="dropdown-item search-panel__item" href="#">
-    ${el.name}<img src='${el.flag}' class='search-panel__flag'></a>`;
+    <p>${el.name}</p><img src='${el.flag}' class='search-panel__flag'></a>`;
     dropdownCountrylist.append(li);
   });
 
-  function changeVaalueTogle(country) {
+  function changeValueTogle(country) {
     let countryItem = document.querySelectorAll('.search-panel__item');
     countryItem.forEach((el) => {
-      el.addEventListener('click', (e) => {
-        country.innerHTML = e.target.innerHTML;
+      el.addEventListener('click', () => {
+        country.innerHTML = el.children[0].innerHTML;
+        getLeagueData(el.children[0].innerHTML);
       });
     });
   }
 
-  changeVaalueTogle(buttonCountry);
+  changeValueTogle(buttonCountry);
 }
 
 export default getCountryData;
