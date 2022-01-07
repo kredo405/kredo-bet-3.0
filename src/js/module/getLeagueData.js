@@ -1,24 +1,38 @@
-import axios from 'axios';
 import { leagues } from './../../data/leagues';
+import getMathes from './getMatches';
 function getLeagueData(country) {
-  const options = {
-    method: 'GET',
-    url: 'https://api-football-v1.p.rapidapi.com/v3/leagues',
-    params: { country: `${country}` },
-    headers: {
-      'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-      'x-rapidapi-key': 'f570367049msh92d23c8fda1a817p1b03cfjsne8957d93c6e0',
-    },
-  };
+  const leaguesList = document.querySelector(
+      '.search-panel__dropdown-menu--league'
+    ),
+    leagueButton = document.querySelector(
+      '.search-panel__button-toggle--league'
+    ),
+    buttonView = document.querySelector('.search-panel__button');
+  const liItems = leaguesList.querySelectorAll('li');
+  liItems.forEach((el) => {
+    el.remove();
+  });
+  for (let key in leagues[`${country}`].league) {
+    let li = document.createElement('li');
+    li.classList.add('search-panel__li');
+    li.innerHTML = `<a class="dropdown-item search-panel__item" href="#">
+  <p>${leagues[`${country}`].league[key].name}</p><img src='${
+      leagues[`${country}`].league[key].logo
+    }' class='search-panel__flag'></a>`;
+    leaguesList.append(li);
 
-  axios
-    .request(options)
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
+    const arrList = document.querySelectorAll('.search-panel__li');
+
+    arrList.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        let leagueName = el.children[0].children[0].innerHTML;
+        leagueButton.innerHTML = leagueName;
+      });
     });
+  }
+  buttonView.addEventListener('click', () => {
+    getMathes(leagues[`${country}`].league[`${leagueButton.innerHTML}`].id);
+  });
 }
 
 export default getLeagueData;
