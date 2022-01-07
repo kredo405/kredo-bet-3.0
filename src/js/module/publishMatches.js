@@ -47,25 +47,36 @@ function publishMatches(arrMatches) {
               </button>
             </p>
             <div class="collapse" id="collapseExample${el.fixture.id}">
-              <div class="card card-body">
-                Some placeholder content for the collapse component. This panel is
-                hidden by default but revealed when the user activates the
-                relevant trigger.
+              <div class="card card-body matches__card matches__card${el.fixture.id}">
+              <div class="matches__preview preview">
+              <ul class="preview__items">
+                <li class="preview__item preview__item--blue">Страна:</li>
+                <li class="preview__item preview__item--blue">Лига:</li>
+                <li class="preview__item preview__item--blue">Раунд:</li>
+                <li class="preview__item preview__item--blue">Сезон</li>
+              </ul>
+              <ul class="preview__items">
+                <li class="preview__item">${el.league.country}</li>
+                <li class="preview__item">${el.league.name}</li>
+                <li class="preview__item">${el.league.round}</li>
+                <li class="preview__item">${el.league.season}</li>
+              </ul>
+            </div>
+            <div class="matches__button-wrapper">
+              <button class="matches__button matches__button${el.fixture.id} btn btn-success">
+                Рассчитать
+              </button>
+            </div>
               </div>
             </div>
     `;
     matchesList.append(div);
-  });
 
-  const arrMatchesButton = document.querySelectorAll('.matches__collapse-btn');
-  arrMatchesButton.forEach((el) => {
-    el.addEventListener('click', () => {
-      arrMatches.forEach((item) => {
-        if (el.children[1].innerHTML === item.teams.home.name) {
-          getLast100MathesHome(item);
-        }
+    document
+      .querySelector(`.matches__button${el.fixture.id}`)
+      .addEventListener('click', () => {
+        getLast100MathesHome(el);
       });
-    });
   });
 }
 

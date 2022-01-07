@@ -17,4 +17,23 @@
     font-size: 12px;
     width: 35%;
   }
+  &__preview {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+.preview__item {
+  list-style-type: none;
+  color: rgb(116, 119, 115);
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+.preview__item--blue {
+  color: rgb(12, 12, 54);
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
 }
