@@ -19,7 +19,7 @@
   }
   &__preview {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   &__button-wrapper {
     display: flex;
@@ -30,7 +30,7 @@
   list-style-type: none;
   color: rgb(116, 119, 115);
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 .preview__item--blue {
   color: rgb(12, 12, 54);

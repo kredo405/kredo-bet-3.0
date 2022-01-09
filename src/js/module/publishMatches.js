@@ -53,13 +53,11 @@ function publishMatches(arrMatches) {
                 <li class="preview__item preview__item--blue">Страна:</li>
                 <li class="preview__item preview__item--blue">Лига:</li>
                 <li class="preview__item preview__item--blue">Раунд:</li>
-                <li class="preview__item preview__item--blue">Сезон</li>
               </ul>
               <ul class="preview__items">
                 <li class="preview__item">${el.league.country}</li>
                 <li class="preview__item">${el.league.name}</li>
                 <li class="preview__item">${el.league.round}</li>
-                <li class="preview__item">${el.league.season}</li>
               </ul>
             </div>
             <div class="matches__button-wrapper">
