@@ -1,4 +1,4 @@
-import getLast100MathesHome from './getLast100MatheForTeams';
+import getData from './getData';
 
 function publishMatches(arrMatches) {
   const matchesList = document.querySelector('.matches__list');
@@ -48,33 +48,63 @@ function publishMatches(arrMatches) {
             </p>
             <div class="collapse" id="collapseExample${el.fixture.id}">
               <div class="card card-body matches__card matches__card${el.fixture.id}">
-              <div class="matches__preview preview">
-              <ul class="preview__items">
-                <li class="preview__item preview__item--blue">Страна:</li>
-                <li class="preview__item preview__item--blue">Лига:</li>
-                <li class="preview__item preview__item--blue">Раунд:</li>
-              </ul>
-              <ul class="preview__items">
-                <li class="preview__item">${el.league.country}</li>
-                <li class="preview__item">${el.league.name}</li>
-                <li class="preview__item">${el.league.round}</li>
-              </ul>
-            </div>
-            <div class="matches__button-wrapper">
-              <button class="matches__button matches__button${el.fixture.id} btn btn-success">
-                Рассчитать
-              </button>
-            </div>
+              <!-- Трансферная стоимость -->
+              <div class="card__transfer-cost card__transfer-cost${el.fixture.id}">
+                    <div class="card__title-wrapper">
+                      <h4 class="card__title">
+                        <a href="https://www.transfermarkt.ru/">Transfermarkt</a>
+                      </h4>
+                    </div>
+                    <div class="card__title-wrapper">
+                      <div class="card__data-title">Введите трансферную стоимость</div>
+                    </div>
+                    <div class="card__data-wrapper">
+                      <div class="card__team">
+                        <img
+                          src="${el.teams.home.logo}"
+                          alt="logo"
+                          class="card__logo"
+                        />
+                      </div>
+                      <div class="card__team">
+                        <img
+                          src="${el.teams.away.logo}"
+                          alt="logo"
+                          class="card__logo"
+                        />
+                      </div>
+                    </div>
+                    <div class="card__data-wrapper">
+                      <div class="card__data card__data--input">
+                        <input type="number" placeholder="&#8364" class="card__input card__input--transfer-cost-home${el.fixture.id}">
+                      </div>
+                      <div class="card__data card__data--input">
+                        <input type="number" placeholder="&#8364" class="card__input card__input--transfer-cost-away${el.fixture.id}">
+                      </div>
+                    </div>
+                    <div class="card__button-wrapper">
+                      <button type="button" class="btn btn-primary card__btn card__btn--transfer-cost${el.fixture.id}">Далее</button>
+                    </div>
+                  </div>
+
               </div>
             </div>
     `;
     matchesList.append(div);
 
-    document
-      .querySelector(`.matches__button${el.fixture.id}`)
-      .addEventListener('click', () => {
-        getLast100MathesHome(el);
-      });
+    // document
+    //   .querySelector(`.matches__button${el.fixture.id}`)
+    //   .addEventListener('click', () => {
+    //     getLast100MathesHome(el);
+    //   });
+
+    const btn = document.querySelector(
+      `.card__btn--transfer-cost${el.fixture.id}`
+    );
+
+    btn.addEventListener('click', () => {
+      getData(el);
+    });
   });
 }
 

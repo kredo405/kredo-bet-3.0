@@ -1,0 +1,84 @@
+.card {
+  &__title-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__data-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  &__team {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  &__logo {
+    width: 20%;
+  }
+  &__data--input {
+    display: flex;
+    justify-content: center;
+  }
+  &__input {
+    width: 60%;
+  }
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  &__dropdown-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+  }
+  &__scheme {
+    margin: 20px 0;
+    p {
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+  &__schemes-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__schemes-home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  &__schemes-away {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  &__header-tabl {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  &__tabl-item {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+  }
+  &__amplua {
+    width: 45%;
+    text-align: center;
+  }
+  &__quntity-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 45%;
+  }
+  &__quantity {
+    width: 20%;
+  }
+  &__logo--wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+}

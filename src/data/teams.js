@@ -225,60 +225,205 @@ const teams = {
       name: 'Alashkert',
       id: '582',
       logo: 'https://media.api-sports.io/football/teams/582.png',
+      price: 4.78,
+      style: 'balance',
     },
 
     'Noah Jūrmala': {
       name: 'Noah Jūrmala',
       id: '16462',
       logo: 'https://media.api-sports.io/football/teams/16462.png',
+      price: 3.64,
+      style: 'balance',
     },
 
     'Banants Yerevan': {
       name: 'Banants Yerevan',
       id: '2276',
       logo: 'https://media.api-sports.io/football/teams/2276.png',
+      price: 4.75,
+      style: 'balance',
     },
 
     Ararat: {
       name: 'Ararat',
       id: '3682',
       logo: 'https://media.api-sports.io/football/teams/3682.png',
+      price: 3.85,
+      style: 'balance',
     },
-
     'Ararat-Armenia': {
       name: 'Ararat-Armenia',
       id: '3683',
       logo: 'https://media.api-sports.io/football/teams/3683.png',
+      price: 5.4,
+      style: 'balance',
     },
 
     Van: {
       name: 'Van',
       id: '6286',
       logo: 'https://media.api-sports.io/football/teams/6286.png',
+      price: 2.29,
+      style: 'def',
     },
 
     'Pyunik Yerevan': {
       name: 'Pyunik Yerevan',
       id: '709',
       logo: 'https://media.api-sports.io/football/teams/709.png',
+      price: 4.48,
+      style: 'def',
     },
 
     Lori: {
       name: 'Lori',
       id: '3685',
       logo: 'https://media.api-sports.io/football/teams/3685.png',
+      price: 4.85,
+      style: 'att',
     },
 
     Shirak: {
       name: 'Shirak',
       id: '3686',
       logo: 'https://media.api-sports.io/football/teams/3686.png',
+      price: 4.85,
+      style: 'att',
     },
 
     Gandzasar: {
       name: 'Gandzasar',
       id: '688',
       logo: 'https://media.api-sports.io/football/teams/688.png',
+      price: 4.85,
+      style: 'att',
+    },
+  },
+  Belarus: {
+    'Shakhter Soligorsk': {
+      name: 'Shakhter Soligorsk',
+      id: '392',
+      logo: 'https://media.api-sports.io/football/teams/392.png',
+      price: 14.4,
+      style: 'balance',
+    },
+
+    'Bate Borisov': {
+      name: 'Bate Borisov',
+      id: '388',
+      logo: 'https://media.api-sports.io/football/teams/388.png',
+      price: 10.8,
+      style: 'balance',
+    },
+
+    'Dinamo Minsk': {
+      name: 'Dinamo Minsk',
+      id: '394',
+      logo: 'https://media.api-sports.io/football/teams/394.png',
+      price: 6.1,
+      style: 'balance',
+    },
+
+    'FC Gomel': {
+      name: 'FC Gomel',
+      id: '389',
+      logo: 'https://media.api-sports.io/football/teams/389.png',
+      price: 2.3,
+      style: 'balance',
+    },
+
+    'Ruh Brest': {
+      name: 'Ruh Brest',
+      id: '3391',
+      logo: 'https://media.api-sports.io/football/teams/3391.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'Dinamo Brest': {
+      name: 'Dinamo Brest',
+      id: '386',
+      logo: 'https://media.api-sports.io/football/teams/386.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'FC Vitebsk': {
+      name: 'FC Vitebsk',
+      id: '382',
+      logo: 'https://media.api-sports.io/football/teams/382.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'Torpedo Zhodino': {
+      name: 'Torpedo Zhodino',
+      id: '385',
+      logo: 'https://media.api-sports.io/football/teams/385.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'FC Slutsk': {
+      name: 'FC Slutsk',
+      id: '379',
+      logo: 'https://media.api-sports.io/football/teams/379.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'FC Isloch Minsk R.': {
+      name: 'FC Isloch Minsk R.',
+      id: '391',
+      logo: 'https://media.api-sports.io/football/teams/391.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    Neman: {
+      name: 'Neman',
+      id: '387',
+      logo: 'https://media.api-sports.io/football/teams/387.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'FC Minsk': {
+      name: 'FC Minsk',
+      id: '380',
+      logo: 'https://media.api-sports.io/football/teams/380.png',
+      price: 4.78,
+      style: 'balance',
+    },
+
+    'FC Energetik-Bgu Minsk': {
+      name: 'FC Energetik-Bgu Minsk',
+      id: '2433',
+      logo: 'https://media.api-sports.io/football/teams/2433.png',
+      price: 4.78,
+      style: 'balance',
+    },
+    'Slavia Mozyr': {
+      name: 'Slavia Mozyr',
+      id: '751',
+      logo: 'https://media.api-sports.io/football/teams/751.png',
+      price: 4.78,
+      style: 'balance',
+    },
+    Smorgon: {
+      name: 'Smorgon',
+      id: '3393',
+      logo: 'https://media.api-sports.io/football/teams/3393.png',
+      price: 4.78,
+      style: 'balance',
+    },
+    Sputnik: {
+      name: 'Sputnik',
+      id: '3394',
+      logo: 'https://media.api-sports.io/football/teams/3394.png',
+      price: 4.78,
+      style: 'balance',
     },
   },
 };
