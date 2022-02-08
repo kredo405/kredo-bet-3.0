@@ -1,6 +1,11 @@
 import calcStaticticAway from './calcStatisticAway';
 
-function calcStaticticHome(lastMatchesHome, lastMatchesAway, match) {
+function calcStaticticHome(
+  lastMatchesHome,
+  lastMatchesAway,
+  match,
+  dataForPrediction
+) {
   let outcomes = {
     'Match Winner': {
       home: {
@@ -149,7 +154,13 @@ function calcStaticticHome(lastMatchesHome, lastMatchesAway, match) {
     }
   });
 
-  calcStaticticAway(outcomes, lastMatchesAway, match, quantityMatchesHome);
+  calcStaticticAway(
+    outcomes,
+    lastMatchesAway,
+    match,
+    quantityMatchesHome,
+    dataForPrediction
+  );
 }
 
 export default calcStaticticHome;

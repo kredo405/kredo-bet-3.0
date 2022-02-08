@@ -4,7 +4,8 @@ function calcStaticticAway(
   outcomes,
   lastMatchesAway,
   match,
-  quantityMatchesHome
+  quantityMatchesHome,
+  dataForPrediction
 ) {
   // рассчитываем статистику для домашней команды
   let quantityMatchesAway = 0;
@@ -92,9 +93,7 @@ function calcStaticticAway(
   }
   calcPercentOutcomes('Home', 'home', quantityMatchesHome);
   calcPercentOutcomes('Away', 'away', quantityMatchesAway);
-
-  console.log(outcomes);
-  getPrediction(outcomes, match);
+  getPrediction(outcomes, match, dataForPrediction);
 }
 
 export default calcStaticticAway;

@@ -81,4 +81,15 @@
     justify-content: center;
     margin: 20px 0;
   }
+  &__buttons-item {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+  }
+  &__button-trends {
+    width: 100px;
+  }
+  &__button-prediction {
+    width: 100px;
+  }
 }

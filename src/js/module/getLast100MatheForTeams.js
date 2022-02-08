@@ -1,6 +1,6 @@
 import axios from 'axios';
 import calcStaticticHome from './calcStatisticHome';
-function getLast100MathesHome(match) {
+function getLast100MathesHome(match, dataForPrediction) {
   //   получаем последние 100 матчей домашней команды
   const options = {
     method: 'GET',
@@ -17,14 +17,14 @@ function getLast100MathesHome(match) {
     .then(function (response) {
       console.log(response.data);
       const { fixtures: lastMatchesHome } = response.data.api;
-      getLast100MathesAway(match, lastMatchesHome);
+      getLast100MathesAway(match, lastMatchesHome, dataForPrediction);
     })
     .catch(function (error) {
       console.error(error);
     });
 }
 
-function getLast100MathesAway(match, lastMatchesHome) {
+function getLast100MathesAway(match, lastMatchesHome, dataForPrediction) {
   //   получаем последние 100 матчей гостевой команды
   const options = {
     method: 'GET',
@@ -42,7 +42,12 @@ function getLast100MathesAway(match, lastMatchesHome) {
       console.log(response.data);
       const { fixtures: lastMatchesAway } = response.data.api;
 
-      calcStaticticHome(lastMatchesHome, lastMatchesAway, match);
+      calcStaticticHome(
+        lastMatchesHome,
+        lastMatchesAway,
+        match,
+        dataForPrediction
+      );
     })
     .catch(function (error) {
       console.error(error);

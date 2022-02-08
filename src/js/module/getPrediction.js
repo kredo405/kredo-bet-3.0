@@ -1,7 +1,7 @@
 import axios from 'axios';
 import getOdds from './getOdds';
 
-function getPrediction(outcomes, match) {
+function getPrediction(outcomes, match, dataForPrediction) {
   const options = {
     method: 'GET',
     url: 'https://api-football-v1.p.rapidapi.com/v3/predictions',
@@ -17,14 +17,14 @@ function getPrediction(outcomes, match) {
     .then(function (response) {
       console.log(response.data);
       const { teams } = response.data.response[0];
-      calcPoison(teams, outcomes, match);
+      calcPoison(teams, outcomes, match, dataForPrediction);
     })
     .catch(function (error) {
       console.error(error);
     });
 }
 
-function calcPoison(teams, outcomes, match) {
+function calcPoison(teams, outcomes, match, dataForPrediction) {
   // Высчитываем примерные индивидуальные тоталы команд
   let expectedGoalsHome =
     ((+teams.home.last_5.goals.for.average +
@@ -196,8 +196,7 @@ function calcPoison(teams, outcomes, match) {
   }
   calcProbabilityPoison();
 
-  console.log(outcomes);
-  getOdds(outcomes, match);
+  getOdds(outcomes, match, dataForPrediction);
 }
 
 export default getPrediction;
