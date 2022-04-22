@@ -12,19 +12,33 @@ function getData(el) {
     },
     lackPlayers: {
       home: {
-        att: 0,
-        def: 0,
-        mild: 0,
+        att: {
+          quantity: 0,
+          goals: 0,
+        },
+        def: {
+          quantity: 0,
+          goals: 0,
+        },
+        mild: {
+          quantity: 0,
+          goals: 0,
+        },
       },
       away: {
-        att: 0,
-        def: 0,
-        mild: 0,
+        att: {
+          quantity: 0,
+          goals: 0,
+        },
+        def: {
+          quantity: 0,
+          goals: 0,
+        },
+        mild: {
+          quantity: 0,
+          goals: 0,
+        },
       },
-    },
-    weather: {
-      temperature: null,
-      precipitation: null,
     },
     factsAndTrends: {
       'Match Winner': {
@@ -122,7 +136,6 @@ function getData(el) {
         );
         playStyle.remove();
         addBlockLackOfPlayers();
-        console.log(this);
       });
     },
     lackOfPlayers() {
@@ -144,69 +157,109 @@ function getData(el) {
       const quntityAttAway = document.querySelector(
         `.card__quantity--att-away${el.fixture.id}`
       );
+
+      const quntityDefHomeGoals = document.querySelector(
+        `.card__quantity--def-home-goals${el.fixture.id}`
+      );
+      const quntityDefAwayGoals = document.querySelector(
+        `.card__quantity--def-away-goals${el.fixture.id}`
+      );
+      const quntityMildHomeGoals = document.querySelector(
+        `.card__quantity--mild-home-goals${el.fixture.id}`
+      );
+      const quntityMildAwayGoals = document.querySelector(
+        `.card__quantity--mild-away-goals${el.fixture.id}`
+      );
+      const quntityAttHomeGoals = document.querySelector(
+        `.card__quantity--att-home-goals${el.fixture.id}`
+      );
+      const quntityAttAwayGoals = document.querySelector(
+        `.card__quantity--att-away-goals${el.fixture.id}`
+      );
       const btnLackOfPlayers = document.querySelector(
         `.card__btn--lackOfPlayers${el.fixture.id}`
       );
 
       btnLackOfPlayers.addEventListener('click', () => {
+        // Количество
         if (quntityDefHome.value) {
-          this.lackPlayers.home.def = +quntityDefHome.value;
+          this.lackPlayers.home.def.quantity = +quntityDefHome.value;
         } else {
-          this.lackPlayers.home.def = 0;
+          this.lackPlayers.home.def.quantity = 0;
         }
 
         if (quntityDefAway.value) {
-          this.lackPlayers.away.def = +quntityDefAway.value;
+          this.lackPlayers.away.def.quantity = +quntityDefAway.value;
         } else {
-          this.lackPlayers.away.def = 0;
+          this.lackPlayers.away.def.quantity = 0;
         }
 
         if (quntityMildHome.value) {
-          this.lackPlayers.home.mild = +quntityMildHome.value;
+          this.lackPlayers.home.mild.quantity = +quntityMildHome.value;
         } else {
-          this.lackPlayers.home.mild = 0;
+          this.lackPlayers.home.mild.quantity = 0;
         }
 
         if (quntityMildAway.value) {
-          this.lackPlayers.away.mild = +quntityMildAway.value;
+          this.lackPlayers.away.mild.quantity = +quntityMildAway.value;
         } else {
-          this.lackPlayers.away.mild = 0;
+          this.lackPlayers.away.mild.quantity = 0;
         }
 
         if (quntityAttHome.value) {
-          this.lackPlayers.home.att = +quntityAttHome.value;
+          this.lackPlayers.home.att.quantity = +quntityAttHome.value;
         } else {
-          this.lackPlayers.home.att = 0;
+          this.lackPlayers.home.att.quantity = 0;
         }
 
         if (quntityAttAway.value) {
-          this.lackPlayers.away.att = +quntityAttAway.value;
+          this.lackPlayers.away.att.quantity = +quntityAttAway.value;
         } else {
-          this.lackPlayers.away.att = 0;
+          this.lackPlayers.away.att.quantity = 0;
         }
+
+        // Для голов
+
+        if (quntityDefHomeGoals.value) {
+          this.lackPlayers.home.def.goals = +quntityDefHomeGoals.value;
+        } else {
+          this.lackPlayers.home.def.goals = 0;
+        }
+
+        if (quntityDefAwayGoals.value) {
+          this.lackPlayers.away.def.goals = +quntityDefAwayGoals.value;
+        } else {
+          this.lackPlayers.away.def.goals = 0;
+        }
+
+        if (quntityMildHomeGoals.value) {
+          this.lackPlayers.home.mild.goals = +quntityMildHomeGoals.value;
+        } else {
+          this.lackPlayers.home.mild.goals = 0;
+        }
+
+        if (quntityMildAwayGoals.value) {
+          this.lackPlayers.away.mild.goals = +quntityMildAwayGoals.value;
+        } else {
+          this.lackPlayers.away.mild.goals = 0;
+        }
+
+        if (quntityAttHomeGoals.value) {
+          this.lackPlayers.home.att.goals = +quntityAttHomeGoals.value;
+        } else {
+          this.lackPlayers.home.att.goals = 0;
+        }
+
+        if (quntityAttAwayGoals.value) {
+          this.lackPlayers.away.att.goals = +quntityAttAwayGoals.value;
+        } else {
+          this.lackPlayers.away.att.goals = 0;
+        }
+
         const lackOfPlayers = document.querySelector(
           `.card__lackOfPlayers${el.fixture.id}`
         );
         lackOfPlayers.remove();
-        weather();
-      });
-    },
-    getWeather() {
-      const button = document.querySelector(
-        `.card__btn--weather${el.fixture.id}`
-      );
-      button.addEventListener('click', () => {
-        this.weather.temperature = document.querySelector(
-          `.card__temperature${el.fixture.id}`
-        ).value;
-        this.weather.precipitation = document.querySelector(
-          `.card__precipitation${el.fixture.id}`
-        ).value;
-
-        const weatherBlock = document.querySelector(
-          `.card__weather${el.fixture.id}`
-        );
-        weatherBlock.remove();
         factAndTrends();
       });
     },
@@ -219,7 +272,7 @@ function getData(el) {
         `.card__individual-totals-over${el.fixture.id}`
       );
       const individualTotalUnder = document.querySelector(
-        `.card__iindividual-totals-under${el.fixture.id}`
+        `.card__individual-totals-under${el.fixture.id}`
       );
       const bothTeamsScore = document.querySelector(
         `.card__both-with-score${el.fixture.id}`
@@ -246,16 +299,16 @@ function getData(el) {
       individualTotalOver.children[0].addEventListener('click', () => {
         this.factsAndTrends['Total - Away']['Over 1']++;
       });
-      individualTotalOver.children[1].addEventListener('click', () => {
+      individualTotalUnder.children[1].addEventListener('click', () => {
         this.factsAndTrends['Total - Home']['Under 1']++;
       });
-      individualTotalOver.children[1].addEventListener('click', () => {
+      individualTotalUnder.children[1].addEventListener('click', () => {
         this.factsAndTrends['Total - Away']['Under 1']++;
       });
-      mainOutcomes.children[0].addEventListener('click', () => {
+      bothTeamsScore.children[0].addEventListener('click', () => {
         this.factsAndTrends['Both Teams Score'].Yes++;
       });
-      mainOutcomes.children[1].addEventListener('click', () => {
+      bothTeamsScore.children[1].addEventListener('click', () => {
         this.factsAndTrends['Both Teams Score'].No++;
       });
 
@@ -280,7 +333,7 @@ function getData(el) {
         `.card__individual-totals-over${el.fixture.id}`
       );
       const individualTotalUnder = document.querySelector(
-        `.card__iindividual-totals-under${el.fixture.id}`
+        `.card__individual-totals-under${el.fixture.id}`
       );
       const bothTeamsScore = document.querySelector(
         `.card__both-with-score${el.fixture.id}`
@@ -339,7 +392,6 @@ function getData(el) {
         );
         prediction.remove();
         getLast100MathesHome(el, this);
-        console.log(this);
       });
     },
   };
@@ -500,13 +552,20 @@ function getData(el) {
       <div class="card__header-tabl">
         <div><b>Амплуа</b></div>
         <div><b>Кол-во</b></div>
+        <div><b>Голы</b></div>
       </div>
       <div class="card__tabl-item">
         <div class="card__amplua">Защитник</div>
         <div class="card__quntity-wrapper">
           <input
-            type="number"
+            type="text"
             class="card__quantity card__quantity--def card__quantity--def-home${el.fixture.id}"
+          />
+        </div>
+        <div class="card__quntity-wrapper">
+          <input
+            type="text"
+            class="card__quantity card__quantity--def card__quantity--def-home-goals${el.fixture.id}"
           />
         </div>
       </div>
@@ -514,8 +573,14 @@ function getData(el) {
         <div class="card__amplua">Полузащитник</div>
         <div class="card__quntity-wrapper">
           <input
-            type="number"
+            type="text"
             class="card__quantity card__quantity--mild card__quantity--mild-home${el.fixture.id}"
+          />
+        </div>
+        <div class="card__quntity-wrapper">
+          <input
+            type="text"
+            class="card__quantity card__quantity--mild card__quantity--mild-home-goals${el.fixture.id}"
           />
         </div>
       </div>
@@ -523,8 +588,14 @@ function getData(el) {
         <div class="card__amplua">Нападающий</div>
         <div class="card__quntity-wrapper">
           <input
-            type="number"
+            type="text"
             class="card__quantity card__quantity--att card__quantity--att-home${el.fixture.id}"
+          />
+        </div>
+        <div class="card__quntity-wrapper">
+          <input
+            type="text"
+            class="card__quantity card__quantity--att card__quantity--att-home-goals${el.fixture.id}"
           />
         </div>
       </div>
@@ -537,13 +608,20 @@ function getData(el) {
       <div class="card__header-tabl">
         <div><b>Амплуа</b></div>
         <div><b>Кол-во</b></div>
+        <div><b>Голы</b></div>
       </div>
       <div class="card__tabl-item">
         <div class="card__amplua">Защитник</div>
         <div class="card__quntity-wrapper">
           <input
-            type="number"
+            type="text"
             class="card__quantity card__quantity--def card__quantity--def-away${el.fixture.id}"
+          />
+        </div>
+        <div class="card__quntity-wrapper">
+          <input
+            type="text"
+            class="card__quantity card__quantity--def card__quantity--def-away-goals${el.fixture.id}"
           />
         </div>
       </div>
@@ -551,17 +629,29 @@ function getData(el) {
         <div class="card__amplua">Полузащитник</div>
         <div class="card__quntity-wrapper">
           <input
-            type="number"
+            type="text"
             class="card__quantity card__quantity--mild card__quantity--mild-away${el.fixture.id}"
           />
         </div>
+        <div class="card__quntity-wrapper">
+        <input
+          type="text"
+          class="card__quantity card__quantity--mild card__quantity--mild-away-goals${el.fixture.id}"
+        />
+      </div>
       </div>
       <div class="card__tabl-item">
         <div class="card__amplua">Нападающий</div>
         <div class="card__quntity-wrapper">
           <input
-            type="number"
+            type="text"
             class="card__quantity card__quantity--att card__quantity--att-away${el.fixture.id}"
+          />
+        </div>
+        <div class="card__quntity-wrapper">
+          <input
+            type="text"
+            class="card__quantity card__quantity--att card__quantity--att-away-goals${el.fixture.id}"
           />
         </div>
       </div>
@@ -579,43 +669,6 @@ function getData(el) {
   </div>
     `;
     dataForPrediction.lackOfPlayers();
-  }
-
-  function weather() {
-    const matchBlock = document.querySelector(`.matches__card${el.fixture.id}`);
-    matchBlock.innerHTML = `
-    <div class="card__weather${el.fixture.id}">
-    <div class="card__wrapper">
-      <div class="card__title-wrapper">
-        <h4 class="card__title">
-          <a href="https://nb-bet.com/">NB-Bet</a>
-        </h4>
-      </div>
-      <div class="card__title-wrapper">
-        <h5 class="card__data-title">Погода</h5>
-      </div>
-      <div class="card__temperature-wrapper">
-        <div>Температура:</div>
-        <input
-          type="text"
-          class="card__temperature card__temperature${el.fixture.id}"
-          placeholder="+5, -5"
-        />
-        <div>Осадки:</div>
-        <input
-          type="text"
-          class="card__temperature card__precipitation${el.fixture.id}"
-          placeholder="Дождь, снег"
-        />
-      </div>
-      <div class="card__button-wrapper">
-        <button type="button" class="btn btn-primary card__btn card__btn--weather${el.fixture.id}">Далее</button>
-      </div>
-    </div>
-  </div>
-    `;
-
-    dataForPrediction.getWeather();
   }
 
   function factAndTrends() {

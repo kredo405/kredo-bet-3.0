@@ -15,7 +15,6 @@ function getMathes(leagueId) {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
       const arrMatches = [];
       response.data.response.forEach((el) => {
         if (el.league.id === leagueId) {

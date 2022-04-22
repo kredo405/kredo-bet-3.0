@@ -99,13 +99,56 @@ function calcStaticticHome(
         poison: 0,
       },
     },
+    avgGoals: {
+      homeFor: 0,
+      homeAgainst: 0,
+      awayFor: 0,
+      awayAgainst: 0,
+    },
+    calcAvgGoals(arr, field, team, teamScored, teamMissed) {
+      // Рассчитываем среднее кол-во забитых и пропущенных голов
+      let sumGoalsFor = 0;
+      let sumGoalsAgainst = 0;
+      let quantityMatches = 0;
+
+      arr.forEach((el) => {
+        if (
+          match.teams[field].id === el[team].team_id &&
+          match.league.name === el.league.name
+        ) {
+          sumGoalsFor += el.goalsHomeTeam;
+          sumGoalsAgainst += el.goalsAwayTeam;
+          quantityMatches++;
+        }
+      });
+
+      this.avgGoals[teamScored] = sumGoalsFor / quantityMatches;
+      this.avgGoals[teamMissed] = sumGoalsAgainst / quantityMatches;
+    },
   };
+
+  outcomes.calcAvgGoals(
+    lastMatchesHome,
+    'home',
+    'homeTeam',
+    'homeFor',
+    'homeAgainst'
+  );
+  outcomes.calcAvgGoals(
+    lastMatchesAway,
+    'away',
+    'awayTeam',
+    'awayFor',
+    'awayAgainst'
+  );
 
   // рассчитываем статистику для домашней команды
   let quantityMatchesHome = 0;
-
   lastMatchesHome.forEach((el) => {
-    if (match.teams.home.id === el.homeTeam.team_id) {
+    if (
+      match.teams.home.id === el.homeTeam.team_id &&
+      match.league.name === el.league.name
+    ) {
       quantityMatchesHome++;
       if (el.goalsHomeTeam > el.goalsAwayTeam) {
         outcomes['Match Winner'].home.home++;

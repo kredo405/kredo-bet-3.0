@@ -1,7 +1,7 @@
 import axios from 'axios';
 import calcPrediction from './calcPrediction';
 
-function getOdds(outcomes, match, dataForPrediction) {
+function getOdds(outcomes, match, dataForPrediction, prediction) {
   const options = {
     method: 'GET',
     url: 'https://api-football-v1.p.rapidapi.com/v3/odds',
@@ -15,8 +15,6 @@ function getOdds(outcomes, match, dataForPrediction) {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
-
       const { bookmakers } = response.data.response[0];
 
       const odds = {
@@ -69,7 +67,7 @@ function getOdds(outcomes, match, dataForPrediction) {
           });
         }
       }
-      calcPrediction(outcomes, match, odds, dataForPrediction);
+      calcPrediction(outcomes, match, odds, dataForPrediction, prediction);
     })
     .catch(function (error) {
       console.error(error);

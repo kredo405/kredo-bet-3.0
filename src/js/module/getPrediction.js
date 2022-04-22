@@ -15,33 +15,29 @@ function getPrediction(outcomes, match, dataForPrediction) {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
       const { teams } = response.data.response[0];
-      calcPoison(teams, outcomes, match, dataForPrediction);
+      const { response: prediction } = response.data;
+      calcPoison(teams, outcomes, match, dataForPrediction, prediction);
     })
     .catch(function (error) {
       console.error(error);
     });
 }
 
-function calcPoison(teams, outcomes, match, dataForPrediction) {
+function calcPoison(teams, outcomes, match, dataForPrediction, prediction) {
   // Высчитываем примерные индивидуальные тоталы команд
   let expectedGoalsHome =
     ((+teams.home.last_5.goals.for.average +
       +teams.away.last_5.goals.against.average) /
       2 +
-      (+teams.home.league.goals.for.average.home +
-        +teams.away.league.goals.against.average.away) /
-        2) /
+      (outcomes.avgGoals.homeFor + outcomes.avgGoals.awayAgainst) / 2) /
     2;
 
   let expectedGoalsAway =
     ((+teams.away.last_5.goals.for.average +
       +teams.home.last_5.goals.against.average) /
       2 +
-      (+teams.away.league.goals.for.average.away +
-        +teams.home.league.goals.against.average.home) /
-        2) /
+      (outcomes.avgGoals.awayFor + outcomes.avgGoals.homeAgainst) / 2) /
     2;
 
   // рассчиываем распределение паусона все матчи
@@ -196,7 +192,7 @@ function calcPoison(teams, outcomes, match, dataForPrediction) {
   }
   calcProbabilityPoison();
 
-  getOdds(outcomes, match, dataForPrediction);
+  getOdds(outcomes, match, dataForPrediction, prediction);
 }
 
 export default getPrediction;

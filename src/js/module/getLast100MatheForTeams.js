@@ -15,7 +15,6 @@ function getLast100MathesHome(match, dataForPrediction) {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
       const { fixtures: lastMatchesHome } = response.data.api;
       getLast100MathesAway(match, lastMatchesHome, dataForPrediction);
     })
@@ -39,7 +38,6 @@ function getLast100MathesAway(match, lastMatchesHome, dataForPrediction) {
   axios
     .request(options)
     .then(function (response) {
-      console.log(response.data);
       const { fixtures: lastMatchesAway } = response.data.api;
 
       calcStaticticHome(

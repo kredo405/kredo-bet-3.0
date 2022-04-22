@@ -11,7 +11,10 @@ function calcStaticticAway(
   let quantityMatchesAway = 0;
 
   lastMatchesAway.forEach((el) => {
-    if (match.teams.away.id === el.awayTeam.team_id) {
+    if (
+      match.teams.away.id === el.awayTeam.team_id &&
+      match.league.name === el.league.name
+    ) {
       quantityMatchesAway++;
       if (el.goalsHomeTeam < el.goalsAwayTeam) {
         outcomes['Match Winner'].away.away++;
